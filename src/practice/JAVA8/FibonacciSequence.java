@@ -26,8 +26,8 @@ public class FibonacciSequence {
 
         int n = 10; // Generate first 10 Fibonacci numbers
 
-//        List<Integer> fibonacciSequence = generateFibonacci(n);
+        List<Integer> fibonacciSequence = generateFibonacci(n);
 
-//        System.out.println(fibonacciSequence); // Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+        System.out.println(fibonacciSequence); // Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
     }
 }

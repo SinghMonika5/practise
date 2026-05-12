@@ -7,6 +7,14 @@ import java.util.stream.*;
 public class NonRepeatedElement {
     public static void main(String[] args) {
         String s = "monika singh";
+        List<String> list = Arrays.asList("monika", "singh");
+
+        List<Character> characters = list.stream()
+                .flatMapToInt(String::chars)               // convert each string to IntStream
+                .mapToObj(c -> (char) c)                   // convert int to Character
+                .collect(Collectors.toList());             // collect to List<Character>
+
+        System.out.println(characters);
         Character cha[]={'a','t'};
        Character ch[]= s.chars().mapToObj(c->(char) c).toArray(Character[]::new);
 
@@ -36,8 +44,8 @@ public class NonRepeatedElement {
         List<List<Integer>> lists=new ArrayList<>();
         lists.add(Arrays.asList(1,3,5));
         lists.add(Arrays.asList(2,4,6));
-        List<Integer> list=lists.stream().flatMap(List::stream).collect(Collectors.toList());
-        System.out.println(list);
+//        List<Integer> list=lists.stream().flatMap(List::stream).collect(Collectors.toList());
+//        System.out.println(list);
         System.out.println(list2);
 
         List<Integer> list1= Arrays.asList(arr);
@@ -66,6 +74,18 @@ if(test.isPresent()){
         System.out.println(max);
 
         System.out.println(sum);
+
+        List<String> list5=Arrays.asList("hi","india");
+        List<String> list6=Arrays.asList("hiii","india");
+        List<List<String>> list7=new ArrayList<>();
+        list7.add(list5);
+        list7.add(list6);
+        List<String> stringList=list7.stream().flatMap(s1->s1.stream()).collect(Collectors.toList());
+
+//        List<Character> characters=list5.stream().flatMap(a->a.chars().mapToObj(c->(char) c)).collect(Collectors.toList());
+//        characters.forEach(System.out::println);
+        stringList.forEach(System.out::println);
+
 
 
 
